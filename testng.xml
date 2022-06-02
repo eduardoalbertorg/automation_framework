@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Practice Suite" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="Listeners"/>
+    </listeners>
+
+    <parameter name="URL" value="google.com"/>
+
+    <test name="Test Basics 1">
+        <classes>
+            <class name="HelloWorldTestCase">
+                <methods>
+                    <exclude name="deprecatedTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="Regression">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="HelloWorldTestCase"/>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->
